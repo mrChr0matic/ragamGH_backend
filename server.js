@@ -10,9 +10,9 @@ var app = express();
 app.use(cors()); 
 app.use(bodyParser.json());
 
-const client_id = "82aa58c5cace0025e67f";
-const clientSecret = "e675188d3331c840115737f7efd8b668f872051d";
-const redirect_uri = "http://localhost:5173/Home/"; 
+const client_id = process.env.VITE_REACT_APP_CLIENT_ID;
+const clientSecret = process.env.VITE_REACT_APP_CLIENT_SECRET;
+const redirect_uri = process.env.VITE_REACT_APP_REDIRECT_URL; 
 
 app.get('/getAccessToken', async function (req, res) {
     const code = req.query.code;
